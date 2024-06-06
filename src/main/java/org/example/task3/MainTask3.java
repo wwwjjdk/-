@@ -15,10 +15,11 @@ public class MainTask3 {
     public static Gson gson = new Gson();
 
     public static void main(String[] args) {
+        String pathForModel = Paths.get("src/main/java/org/example/task3", "tests.json").toString();
+        String pathForUpdate = Paths.get("src/main/java/org/example/task3", "values.json").toString();
+        String pathForNewFileWithUpdate = Paths.get("src/main/java/org/example/task3", "report.json").toString();
 
-        generateNewJsonFile(Paths.get("src/main/java/org/example/task3", "tests.json").toString(),
-                Paths.get("src/main/java/org/example/task3", "values.json").toString(),
-                Paths.get("src/main/java/org/example/task3", "report.json").toString());
+        generateNewJsonFile(pathForModel, pathForUpdate, pathForNewFileWithUpdate);
     }
 
     private static void generateNewJsonFile(String pathForModel, String pathForUpdate, String pathForNewFileWithUpdate) {
@@ -40,15 +41,14 @@ public class MainTask3 {
 
     private static void updateValues(List<Test> tests, List<Value> values) {
         for (Test test : tests) {
-            for(Value value : values){
-                if(test.values != null){
+            for (Value value : values) {
+                if (test.values != null) {
                     updateValues(test.values, values);
                 }
                 if (test.getId() == value.getId()) {
                     test.setValue(value.getValue());
                 }
             }
-
         }
     }
 
