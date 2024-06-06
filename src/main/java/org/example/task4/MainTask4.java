@@ -11,12 +11,14 @@ import java.util.List;
 
 public class MainTask4 {
     public static void main(String[] args) {
-        String name = "numbers.txt";
-        var path = Paths.get("src/main/java/org/example/task4", name);
+        var path = Paths.get("src/main/java/org/example/task4", "numbers.txt").toString();
 
+        searchMinStep(path);
+    }
+
+    private static void searchMinStep(String path) {
         try (
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(path)))
-
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(path))
         ) {
             List<Integer> list = new ArrayList<>();
             String line;

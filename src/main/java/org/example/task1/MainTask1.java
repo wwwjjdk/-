@@ -5,11 +5,8 @@ import java.util.Scanner;
 
 public class MainTask1 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Укажите длину массива");
-        int nElements = scanner.nextInt();
-        System.out.println("Укажите длину разделетиеля");
-        int mSeparator = scanner.nextInt();
+        int nElements = 5;
+        int mSeparator = 4;
         generateArrays(nElements, mSeparator);
     }
 

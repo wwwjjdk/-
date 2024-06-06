@@ -7,11 +7,16 @@ import java.nio.file.Paths;
 
 public class MainTask2 {
     public static void main(String[] args) {
+        String pathFile1 = Paths.get("src/main/java/org/example/task2", "file1.txt").toString();
+        String pathFile2 = Paths.get("src/main/java/org/example/task2", "file2.txt").toString();
+        searchPositionOfThePoint(pathFile1,pathFile2);
+    }
+    private static void searchPositionOfThePoint(String path1, String path2){
         try (
                 BufferedReader circleReader = new BufferedReader(
-                        new FileReader(Paths.get("src/main/java/org/example/task2", "file1.txt").toString()));
+                        new FileReader(path1));
                 BufferedReader pointsReader = new BufferedReader(
-                        new FileReader(Paths.get("src/main/java/org/example/task2", "file2.txt").toString()))
+                        new FileReader(path2))
         ) {
             String[] circleLine = circleReader.readLine().split(" ");
             double centerX = Double.parseDouble(circleLine[0]);
